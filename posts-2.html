@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · t3b08-yc-room-real2-1</title>
+  <meta name="description" content="t3b08-yc-room-real2-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://yeomchang-review-note.hardcoreroom.com/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* Reset */
+ *, *::before, *::after {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ html {
+ font-size: 16px;
+ scroll-behavior: smooth;
+ }
+ body {
+ background-color: #0c0c0c;
+ background-image: 
+ linear-gradient(45deg, #1a1a1a 2px, transparent 2px),
+ linear-gradient(-45deg, #1a1a1a 2px, transparent 2px);
+ background-size: 20px 20px;
+ color: #e0e0e0;
+ font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+ line-height: 1.7;
+ min-height: 100vh;
+ padding-bottom: 2rem;
+ border-left: 6px solid #ff0055;
+ border-right: 6px solid #00f0ff;
+ }
+ /* Typography */
+ h1, h2, h3, h4, h5, h6 {
+ font-family: 'Pretendard', 'Inter', 'Helvetica Neue', sans-serif;
+ font-weight: 800;
+ letter-spacing: -0.02em;
+ text-transform: uppercase;
+ color: #ffffff;
+ }
+ h1 {
+ font-size: 3.2rem;
+ line-height: 1.1;
+ margin-bottom: 1.2rem;
+ text-shadow: 4px 4px 0 #ff0055, 8px 8px 0 rgba(0, 240, 255, 0.3);
+ border-left: 10px solid #00f0ff;
+ padding-left: 1rem;
+ }
+ h2 {
+ font-size: 2.2rem;
+ margin-top: 2.8rem;
+ margin-bottom: 1.2rem;
+ position: relative;
+ display: inline-block;
+ }
+ h2::after {
+ content: '';
+ display: block;
+ width: 80%;
+ height: 4px;
+ background: linear-gradient(90deg, #ff0055, #00f0ff);
+ margin-top: 6px;
+ clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+ }
+ h3 {
+ font-size: 1.5rem;
+ margin-top: 1.8rem;
+ margin-bottom: 0.8rem;
+ border-bottom: 2px dashed #ff0055;
+ padding-bottom: 0.3rem;
+ }
+ p {
+ margin-bottom: 1.2rem;
+ font-weight: 400;
+ color: #cdcdcd;
+ max-width: 75ch;
+ }
+ a {
+ color: #00f0ff;
+ text-decoration: underline wavy #ff0055 1px;
+ text-underline-offset: 4px;
+ transition: all 0.2s;
+ }
+ a:hover {
+ color: #ff0055;
+ text-decoration-color: #00f0ff;
+ background: rgba(0, 240, 255, 0.1);
+ }
+ /* Layout */
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 2rem 1.5rem;
+ background: rgba(12, 12, 12, 0.7);
+ backdrop-filter: blur(2px);
+ border: 1px solid #2a2a2a;
+ box-shadow: 0 0 40px rgba(255, 0, 85, 0.2);
+ }
+ @media (max-width: 768px) {
+ .container {
+ padding: 1.2rem 0.8rem;
+ border: none;
+ box-shadow: none;
+ }
+ h1 {
+ font-size: 2rem;
+ border-left-width: 6px;
+ padding-left: 0.6rem;
+ }
+ h2 {
+ font-size: 1.6rem;
+ }
+ }
+ /* Header & Navigation */
+ header {
+ border-bottom: 3px solid #ff0055;
+ margin-bottom: 2.5rem;
+ padding-bottom: 0.5rem;
+ }
+ nav {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ align-items: center;
+ gap: 0.8rem;
+ background: #111111;
+ padding: 0.8rem 1.5rem;
+ border: 1px solid #00f0ff;
+ position: relative;
+ }
+ nav .logo {
+ font-weight: 900;
+ font-size: 1.6rem;
+ color: #fff;
+ text-shadow: 2px 2px 0 #ff0055;
+ letter-spacing: -0.04em;
+ }
+ nav .logo span {
+ color: #00f0ff;
+ }
+ nav ul {
+ display: flex;
+ list-style: none;
+ gap: 2rem;
+ flex-wrap: wrap;
+ margin: 0;
+ padding: 0;
+ }
+ nav ul li a {
+ color: #e0e0e0;
+ font-weight: 700;
+ text-decoration: none;
+ text-transform: uppercase;
+ font-size: 0.9rem;
+ padding: 0.4rem 0.2rem;
+ border-bottom: 2px solid transparent;
+ transition: 0.2s;
+ letter-spacing: 0.06em;
+ }
+ nav ul li a:hover {
+ border-bottom-color: #ff0055;
+ color: #ffffff;
+ background: transparent;
+ }
+ .tel-link {
+ background: #ff0055;
+ color: #0c0c0c !important;
+ padding: 0.5rem 1.2rem !important;
+ font-weight: 900;
+ border: 2px solid #00f0ff;
+ text-decoration: none !important;
+ clip-path: polygon(8% 0, 100% 0, 92% 100%, 0% 100%);
+ transition: 0.2s;
+ }
+ .tel-link:hover {
+ background: #00f0ff;
+ border-color: #ff0055;
+ color: #0c0c0c !important;
+ }
+ .hamburger-menu {
+ display: none;
+ flex-direction: column;
+ cursor: pointer;
+ gap: 5px;
+ background: transparent;
+ border: none;
+ padding: 6px;
+ }
+ .hamburger-menu span {
+ width: 28px;
+ height: 3px;
+ background: #00f0ff;
+ display: block;
+ transition: 0.3s;
+ }
+ @media (max-width: 768px) {
+ nav {
+ flex-wrap: wrap;
+ padding: 0.6rem 1rem;
+ }
+ nav ul {
+ display: none;
+ width: 100%;
+ flex-direction: column;
+ gap: 0.8rem;
+ background: #0c0c0c;
+ padding: 1.2rem;
+ border: 1px solid #ff0055;
+ margin-top: 0.5rem;
+ }
+ nav ul.open {
+ display: flex;
+ }
+ .hamburger-menu {
+ display: flex;
+ }
+ .tel-link {
+ margin-left: auto;
+ font-size: 0.8rem;
+ padding: 0.4rem 0.8rem !important;
+ }
+ }
+ /* cards / info blocks */
+ .info-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 1.8rem;
+ margin: 2rem 0;
+ }
+ .info-card {
+ background: #141414;
+ border: 1px solid #2a2a2a;
+ padding: 1.8rem 1.2rem;
+ box-shadow: 6px 6px 0 #000;
+ transition: 0.2s;
+ border-left: 6px solid #ff0055;
+ }
+ .info-card:hover {
+ transform: translate(-2px, -2px);
+ box-shadow: 10px 10px 0 #00f0ff33;
+ border-left-color: #00f0ff;
+ }
+ .info-card h3 {
+ margin-top: 0;
+ border-bottom: 0;
+ font-size: 1.5rem;
+ }
+ .info-card .stat {
+ font-size: 2rem;
+ font-weight: 900;
+ color: #00f0ff;
+ display: block;
+ margin: 0.5rem 0;
+ }
+ .badge {
+ display: inline-block;
+ background: #ff0055;
+ color: #0c0c0c;
+ padding: 0.2rem 0.8rem;
+ font-weight: 800;
+ font-size: 0.8rem;
+ letter-spacing: 0.04em;
+ clip-path: polygon(4% 0, 100% 0, 96% 100%, 0% 100%);
+ margin-right: 0.4rem;
+ }
+ .data-table {
+ width: 100%;
+ border-collapse: collapse;
+ margin: 2rem 0;
+ background: #0e0e0e;
+ border: 1px solid #2f2f2f;
+ }
+ .data-table th {
+ background: #1f1f1f;
+ color: #00f0ff;
+ padding: 0.8rem 1rem;
+ text-align: left;
+ border-bottom: 3px solid #ff0055;
+ text-transform: uppercase;
+ }
+ .data-table td {
+ padding: 0.8rem 1rem;
+ border-bottom: 1px solid #222;
+ }
+ .data-table tr:hover td {
+ background: #1a1a1a;
+ }
+ .faq-item {
+ border-left: 4px solid #00f0ff;
+ padding-left: 1.2rem;
+ margin: 1.5rem 0;
+ }
+ .faq-item strong {
+ color: #ff0055;
+ font-size: 1.1rem;
+ }
+ footer {
+ margin-top: 3rem;
+ padding-top: 1.5rem;
+ border-top: 2px solid #2a2a2a;
+ text-align: center;
+ font-size: 0.9rem;
+ color: #777;
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · t3b08-yc-room-real2-1">
+  <meta property="og:description" content="t3b08-yc-room-real2-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://yeomchang-review-note.hardcoreroom.com/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <nav>
+ <div class="logo"><span>염창</span> ROOM</div>
+ <button class="hamburger-menu" aria-label="메뉴 열기" onclick="this.nextElementSibling.classList.toggle('open')">
+ 
+ </button>
+ <ul>
+ <li><a href="/">홈</a></li>
+ <li><a href="/info" style="color:#ff0055; border-bottom:2px solid #00f0ff;">정보</a></li>
+ <li><a href="/reviews">찐후기</a></li>
+ <li><a href="/contact">예약</a></li>
+ 
+ </ul>
+ </nav>
+ <h1>염창 룸싸롱 찐후기<br>공식 정보 &amp; 데이터</h1>
+ <p style="font-size:1.1rem; border-left: 4px solid #ff0055; padding-left: 1rem;">2025년 업데이트 · 실제 방문자 기반 · 검증된 라운지 프로필</p>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 40개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0469.html">염창 룸싸롱 찐후기 확인하고 마포 홍대 단체 가라오케 예약 가이드 숙지하기</a>
+        <p class="post-item__summary">많은 이들이 염창 룸싸롱 찐후기 정보를 찾으며 밤 문화의 기준점을 잡으려 노력합니다. 하지만 단순히 후기만 쫓기보다 체계적인 예약 시스템을 활용하는 것이 합리적입니다. 본문에서는 마포와 홍대 일대에</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0470.html">염창 룸싸롱 찐후기 분석으로 보는 구글 인덱싱 속도 초고속 광회선 대역폭 최적화</a>
+        <p class="post-item__summary">염창 룸싸롱 찐후기 사례를 통해 얻는 교훈처럼, 정보의 가치는 신뢰도와 접근 속도에서 결정됩니다. 웹사이트 역시 마찬가지로 인덱싱 속도가 낮으면 검색 엔진의 외면을 받기 십상입니다. 오늘은 광회선 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0471.html">염창 룸싸롱 찐후기 찾듯 신중한 구글 신뢰 지수 모발이식 솔루션 선정법</a>
+        <p class="post-item__summary">정보의 홍수 속에서 염창 룸싸롱 찐후기 정보를 찾듯 올바른 결과를 얻으려면 기준이 명확해야 합니다. 검색 결과 상위 노출을 노리는 많은 이들이 도메인 파워를 높이기 위해 무리한 시도를 하다 실패합니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0474.html">염창 룸싸롱 찐후기 확인 후 신중하게 고르는 망원 노래방 추천정보</a>
+        <p class="post-item__summary">많은 이들이 화려한 밤문화에 대한 오해로 인해 노래방 방문을 막연히 부정적으로 생각하는 경우가 있습니다. 염창 룸싸롱 찐후기 같은 자극적인 키워드를 검색하며 밤거리를 배회하기보다, 건전하게 노래를 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0475.html">염창 룸싸롱 찐후기 찾는 분들을 위한 올바른 홍대 노래방 추천정보</a>
+        <p class="post-item__summary">좋은 노래방의 조건은 무엇일까요? 우선 접근성이 좋아야 하며 공간의 크기가 인원 구성에 적합해야 한다는 점을 꼽을 수 있습니다. 염창 룸싸롱 찐후기 등의 유흥 정보를 찾는 분들도 결국 지인과의 소중</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0476.html">염창 룸싸롱 찐후기 비교만큼 중요한 공덕 셔츠룸 추천정보 선택법</a>
+        <p class="post-item__summary">여러분은 일상에서 스트레스를 해소하기 위해 어떤 기준을 가지고 장소를 선택하시나요? 흔히 염창 룸싸롱 찐후기 정보를 살피며 밤문화를 탐색하는 이들이 많지만, 사실 중요한 것은 지역적 특색을 반영한 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0477.html">염창 룸싸롱 찐후기 활용한 연남 유흥 추천정보 분석 단계</a>
+        <p class="post-item__summary">온라인에 넘쳐나는 정보 속에서 신뢰할 수 있는 데이터를 선별하는 능력은 필수적입니다. 특히 염창 룸싸롱 찐후기 같은 키워드로 검색을 시작할 때는 정보의 출처가 얼마나 객관적인지를 먼저 따져봐야 합니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0478.html">염창 룸싸롱 찐후기 비교를 통한 마곡 가라오케 추천정보 가격 기준</a>
+        <p class="post-item__summary">합리적인 선택을 위해 가장 먼저 고려해야 할 요소는 역시 비용의 구조입니다. 염창 룸싸롱 찐후기 사례를 분석하다 보면 가격에 대한 언급이 단골로 등장하는데, 이를 통해 본인에게 적합한 가격대의 업소</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0479.html">염창 룸싸롱 찐후기 학습으로 본 마곡 유흥 추천정보 예약 실패 방지법</a>
+        <p class="post-item__summary">많은 이들이 예약을 서두르다가 흔히 저지르는 실수가 바로 기본적인 세부 정보를 확인하지 않는 점입니다. 염창 룸싸롱 찐후기 사례를 면밀히 살펴보면, 상당수의 불만족 사례가 예약 과정에서의 소통 부재</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0480.html">염창 룸싸롱 찐후기 리스트업으로 알아본 합정 노래방 추천정보 접근성 체크</a>
+        <p class="post-item__summary">모임의 성패는 장소를 결정하는 초기 단계에서 상당 부분 결정됩니다. 염창 룸싸롱 찐후기 데이터를 활용해 분석해보면 대중교통 이용의 편의성과 주차 여부 같은 접근성 요소가 방문 만족도에 미치는 영향은</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0481.html">염창 룸싸롱 찐후기 확인하고 찾는 연남 클럽 추천정보 방문 팁</a>
+        <p class="post-item__summary">지난 주말 지인들과 저녁 모임을 마치고 활기찬 분위기를 찾아 연남동 일대를 거닐었던 경험이 있습니다. 처음 방문하는 장소에서는 단순히 소문만 듣고 움직이기보다 현장 분위기를 정확히 파악하는 과정이 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0482.html">염창 룸싸롱 찐후기 비교와 합정 셔츠룸 추천정보 선택의 핵심</a>
+        <p class="post-item__summary">일부에서는 셔츠룸을 이용할 때 무작정 저녁 늦은 시간에 가는 것이 좋다고 오해하는 경우가 많습니다. 사실 모든 유흥 업종이 그렇듯, 가장 쾌적한 서비스를 제공받기 위해서는 매장별로 최적화된 시간대를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0483.html">염창 룸싸롱 찐후기 속 공덕 가라오케 추천정보 인원 구성 팁</a>
+        <p class="post-item__summary">성공적인 회식이나 모임을 완성하기 위해서는 장소의 분위기, 접근성, 그리고 무엇보다 인원 구성에 적합한 공간을 선택하는 것이 최우선 충족 조건입니다. 많은 이들이 염창 룸싸롱 찐후기 등을 보며 정보</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0484.html">염창 룸싸롱 찐후기 읽고 상수 마사지 추천정보 비교 판단법</a>
+        <p class="post-item__summary">여러분은 평소 쌓인 피로를 풀기 위해 어떤 기준을 가지고 마사지샵을 선택하시나요? 염창 룸싸롱 찐후기처럼 특정 업종의 후기를 찾아보는 행위는 다른 업종에도 공통으로 적용되는 정보 탐색 과정의 일부입</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-002-8oat2r.html">잘 몰라서 그런데... 슬라이드 번호 7 장의 비밀, 염창 룸싸롱 찐후기와 같은 깊이로 분석해 드립니다!</a>
+        <p class="post-item__summary">data_scientist,monitor,nsa,prism_analysis,neon_light,dark_mode,cyberpunk,aesthetic,office_setup,typing,keyboar</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">염창 룸싸롱 찐후기</a>
+        <p class="post-item__summary">룸싸롱은 염창역 인근에 모여 있는 업종 중 하나로, 음주가 가능한 감성 라운지 형식의 유흥 업소입니다. 주로 노래 감상을 중심으로 한 공간 구성을 갖추고 있으며, 예약과 방문 전 미리 안내를 확인하</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">염창 룸싸롱 찐후기 안내</a>
+        <p class="post-item__summary">염창 지역에서 룸싸롱을 이용할 때 참고할 수 있는 찐후기 유형에 대해 안내합니다. 실제로 방문한 사람들의 생생한 경험담은 이용 전반에 대한 이해를 높이는 데 도움이 되며, 특히 처음 이용하는 이용자</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">염창 룸싸롱 찐후기</a>
+        <p class="post-item__summary">염창 지역의 룸싸롱에 대한 정보는 다양한 채널을 통해 확인될 수 있습니다. 해당 지역에서는 다양한 매장이 운영되고 있으며, 고객들은 각 매장의 분위기와 서비스 수준을 비교하여 선택하는 경향이 있습니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">염창 룸싸롱 찐후기 안내</a>
+        <p class="post-item__summary">염창 지역의 룸싸롱을 이용하는 고객들은 보통 다양한 정보를 참고하여 방문지를 결정합니다. 이러한 과정에서 실제로 방문한 경험이 담긴 후기는 매우 중요한 역할을 하며, 단순한 가격 경쟁력뿐만 아니라 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">염창 룸싸롱 찐후기 가이드</a>
+        <p class="post-item__summary">염창 지역의 룸싸롱 관련 정보를 찾으시는 분들은 주로 특정 업소의 분위기나 서비스 내용에 대해 궁금해합니다. 정확한 방문 후기나 개별 업소의 상세 데이터는 직접 현장을 방문하거나 공식 채널을 통해 </p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
